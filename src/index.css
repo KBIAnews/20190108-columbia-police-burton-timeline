@@ -7,9 +7,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body time.timeline-item-dateinner {
-	font-weight: 100;
+div.body-container{
+  background-color: #eeeeee;
+  padding: 1rem;
 }
+
+body h3 small{
+  text-transform: uppercase;
+  font-size: 0.6em !important;
+}
+
+body h3 {
+  font-size: 1.3em !important;
+}
+
+/*body time.timeline-item-dateinner {*/
+	/*font-weight: 100;*/
+/*}*/
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
