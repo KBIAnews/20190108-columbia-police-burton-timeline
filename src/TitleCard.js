@@ -1,5 +1,4 @@
 import { Component } from "react";
-import logo from "./logo.svg";
 import React from "react";
 import { GoogleSheetsContextConsumer } from "./GoogleSheetsContext";
 import { GridLoader } from "react-spinners";
@@ -33,18 +32,14 @@ export class TitleCard extends Component {
             } else {
               return (
                 <React.Fragment>
-                  <img src={logo} className="App-logo" alt="logo" />
-                  <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                  </p>
-                  <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Learn React
-                  </a>
+                  <h1>{context.getLabel("headline")}</h1>
+                  {/*<img src={logo} className="App-logo" alt="logo" />*/}
+                  <div
+                    className="subhed"
+                    dangerouslySetInnerHTML={{
+                      __html: context.getLabel("subhed")
+                    }}
+                  />
                 </React.Fragment>
               );
             }

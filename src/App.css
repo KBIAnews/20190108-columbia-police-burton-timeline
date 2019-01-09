@@ -18,6 +18,15 @@
   color: white;
 }
 
+.subhed{
+  max-width: 800px;
+  text-align: left;
+}
+
+.subhed a{
+  color: #bbb;
+}
+
 .App-link {
   color: #61dafb;
 }
