@@ -25,6 +25,7 @@ class GoogleSheetsFetcher extends React.Component {
         data: result.data,
         labels: result.labels
       });
+      this.context.createTimeline(result.data);
       this.context.removeSuspense();
     });
   }

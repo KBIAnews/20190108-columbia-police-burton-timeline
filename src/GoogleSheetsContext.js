@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 export const defaultSheetContext = {};
 
@@ -12,7 +13,8 @@ export class GoogleSheetsContextProvider extends React.Component {
       pageShouldRemindScrollable: false,
       rawWorkbookData: null,
       rawSheetsData: null,
-      workbookKey: null
+      workbookKey: null,
+      timeline: null
     };
   }
 
@@ -59,6 +61,52 @@ export class GoogleSheetsContextProvider extends React.Component {
     );
   }
 
+  getCategoryColor(slug) {
+    return this.state.rawSheetsData.design.rows.filter(el => {
+      return el.slug === slug;
+    })[0].hexcolor;
+  }
+
+  getCategoryName(slug) {
+    return this.state.rawSheetsData.design.rows.filter(el => {
+      return el.slug === slug;
+    })[0].displayname;
+  }
+
+  createTimeline(dataSheet) {
+    let unsortedTimelineObjects = dataSheet.rows.map(row => {
+      return {
+        date: moment(row.date, "YYYY-MM-DD"),
+        heading: row.heading,
+        description: row.description,
+        categorySlug: row.categoryslug,
+        linkUrl: row.linkurl,
+        imageUrl: row.imageurl,
+        audioUrl: row.audiourl,
+        exactDateLabel: row.exactdatelabel,
+        publicationName: row.publicationname
+      };
+    });
+    let sortedData = unsortedTimelineObjects.sort((a, b) => {
+      // If two events happen on the same date, make sure the memo goes first.
+      if (a.date - b.date === 0) {
+        if (a.categorySlug === b.categorySlug) {
+          return 0;
+        } else if (a.categorySlug === "-------") {
+          return -1;
+        } else if (b.categorySlug === "-------") {
+          return 1;
+        } else {
+          return a.categorySlug - b.categorySlug;
+        }
+      } else {
+        // If two events do not happen on the same date, they are sorted by date.
+        return a.date - b.date;
+      }
+    });
+    this.setState({ timeline: sortedData });
+  }
+
   render() {
     return (
       <GoogleSheetsContext.Provider
@@ -69,7 +117,10 @@ export class GoogleSheetsContextProvider extends React.Component {
           setWorkbookKey: this.setWorkbookKey.bind(this),
           removeSuspense: this.removeSuspense.bind(this),
           imposeSuspense: this.imposeSuspense.bind(this),
-          getLabel: this.getLabel.bind(this)
+          getLabel: this.getLabel.bind(this),
+          getCategoryColor: this.getCategoryColor.bind(this),
+          getCategoryName: this.getCategoryName.bind(this),
+          createTimeline: this.createTimeline.bind(this)
         }}
       >
         {this.props.children}

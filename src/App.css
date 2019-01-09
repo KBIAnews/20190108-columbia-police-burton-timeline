@@ -39,3 +39,18 @@
     transform: rotate(360deg);
   }
 }
+
+a.timeline-button-readMore{
+  padding: 10px 10px 11px 10px;
+  font-size: 0.9em;
+  border-radius: 6px;
+  background-color: #7a7a7a;
+  color: #ddd;
+  text-decoration: none;
+  transition: background-color 1s;
+}
+
+a.timeline-button-readMore:hover {
+  background-color: #6a6a6a;
+  text-decoration: none;
+}
