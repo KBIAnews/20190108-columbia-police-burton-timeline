@@ -53,7 +53,49 @@ a.timeline-button-readMore{
   transition: opacity 1s;
 }
 
+div.organizerContainer {
+  max-width: 900px;
+  margin: auto;
+}
+
+div.clearfix{
+  overflow: auto;
+}
+
+div.clearfix:after{
+  clear: both;
+  content: "";
+  display: table;
+}
+
 a.timeline-button-readMore:hover {
   opacity: 0.8;
   text-decoration: none;
+}
+
+button.categoryFilter--button {
+  outline: none;
+  font-size: 1.3em;
+  margin: 20px;
+  padding: 5px;
+  color: #777777;
+  transition: all 0.5s ease-in-out;
+  border-radius: 5px;
+  border: 1px solid rgba(100,100,100,0);
+}
+
+button.categoryFilter--button:hover {
+  color: #555555;
+  border: 1px solid rgba(100,100,100,0.5);
+}
+
+button.categoryFilter--button svg {
+  margin-right: 10px;
+  font-size: 0.9em;
+}
+
+button.categoryFilter--button-filter{
+  text-align: right;
+  display: inline;
+  float: right;
 }

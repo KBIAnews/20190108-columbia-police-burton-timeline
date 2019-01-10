@@ -7,6 +7,7 @@ import {
 import { TimelineEntry } from "./TimelineEntry";
 import GoogleSheetsFetcher from "./GoogleSheetsFetcher";
 import { TitleCard } from "./TitleCard";
+import { CategoryFilterPane } from "./CategoryFilterPane";
 import "./App.css";
 import "../node_modules/pretty-checkbox/dist/pretty-checkbox.css";
 
@@ -27,23 +28,24 @@ class App extends Component {
             {context =>
               !context.pageMustSuspend && (
                 <React.Fragment>
-                  <button
-                    onClick={() => {
-                      context.filterTimelineByCategorySlugs([
-                        "excessive-force"
-                      ]);
-                    }}
-                  >
-                    Excessive Force Only
-                  </button>
-                  <button
-                    onClick={() => {
-                      context.filterTimelineClear();
-                    }}
-                  >
-                    No filters
-                  </button>
-                  <Timeline lineColor={"#ddd"}>
+                  {/*<button*/}
+                  {/*onClick={() => {*/}
+                  {/*context.filterTimelineByCategorySlugs([*/}
+                  {/*"excessive-force"*/}
+                  {/*]);*/}
+                  {/*}}*/}
+                  {/*>*/}
+                  {/*Excessive Force Only*/}
+                  {/*</button>*/}
+                  {/*<button*/}
+                  {/*onClick={() => {*/}
+                  {/*context.filterTimelineClear();*/}
+                  {/*}}*/}
+                  {/*>*/}
+                  {/*No filters*/}
+                  {/*</button>*/}
+                  <CategoryFilterPane />
+                  <Timeline lineColor={"#ddd"} animate={false}>
                     {context.filteredTimeline.map((el, index) => {
                       return (
                         <TimelineEntry item={el} key={`te-procGen-${index}`} />

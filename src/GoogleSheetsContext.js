@@ -56,7 +56,7 @@ export class GoogleSheetsContextProvider extends React.Component {
   }
 
   static elementIsAnnotation(el) {
-    return el.slug.includes("--");
+    return el.categorySlug.includes("--");
   }
 
   getLabel(key) {

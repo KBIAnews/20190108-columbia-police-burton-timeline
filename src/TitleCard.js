@@ -32,14 +32,16 @@ export class TitleCard extends Component {
             } else {
               return (
                 <React.Fragment>
-                  <h1>{context.getLabel("headline")}</h1>
-                  {/*<img src={logo} className="App-logo" alt="logo" />*/}
-                  <div
-                    className="subhed"
-                    dangerouslySetInnerHTML={{
-                      __html: context.getLabel("subhed")
-                    }}
-                  />
+                  <div className="organizerContainer">
+                    <h1>{context.getLabel("headline")}</h1>
+                    {/*<img src={logo} className="App-logo" alt="logo" />*/}
+                    <div
+                      className="subhed"
+                      dangerouslySetInnerHTML={{
+                        __html: context.getLabel("subhed")
+                      }}
+                    />
+                  </div>
                 </React.Fragment>
               );
             }
