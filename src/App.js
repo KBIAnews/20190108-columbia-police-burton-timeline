@@ -8,6 +8,7 @@ import { TimelineEntry } from "./TimelineEntry";
 import GoogleSheetsFetcher from "./GoogleSheetsFetcher";
 import { TitleCard } from "./TitleCard";
 import "./App.css";
+import "../node_modules/pretty-checkbox/dist/pretty-checkbox.css";
 
 class App extends Component {
   componentDidMount() {}
@@ -26,8 +27,24 @@ class App extends Component {
             {context =>
               !context.pageMustSuspend && (
                 <React.Fragment>
+                  <button
+                    onClick={() => {
+                      context.filterTimelineByCategorySlugs([
+                        "excessive-force"
+                      ]);
+                    }}
+                  >
+                    Excessive Force Only
+                  </button>
+                  <button
+                    onClick={() => {
+                      context.filterTimelineClear();
+                    }}
+                  >
+                    No filters
+                  </button>
                   <Timeline lineColor={"#ddd"}>
-                    {context.timeline.map((el, index) => {
+                    {context.filteredTimeline.map((el, index) => {
                       return (
                         <TimelineEntry item={el} key={`te-procGen-${index}`} />
                       );

@@ -14,7 +14,8 @@ export class GoogleSheetsContextProvider extends React.Component {
       rawWorkbookData: null,
       rawSheetsData: null,
       workbookKey: null,
-      timeline: null
+      timeline: null,
+      filteredTimeline: null
     };
   }
 
@@ -54,6 +55,10 @@ export class GoogleSheetsContextProvider extends React.Component {
     })[0].value;
   }
 
+  static elementIsAnnotation(el) {
+    return el.slug.includes("--");
+  }
+
   getLabel(key) {
     return GoogleSheetsContextProvider.getValueFromKeyValueSheet(
       this.state.rawSheetsData.labels,
@@ -71,6 +76,21 @@ export class GoogleSheetsContextProvider extends React.Component {
     return this.state.rawSheetsData.design.rows.filter(el => {
       return el.slug === slug;
     })[0].displayname;
+  }
+
+  getCategoriesList() {
+    return this.state.rawSheetsData.design
+      .filter(el => {
+        // Don't give me the
+        return !el.slug.includes("--");
+      })
+      .map(el => {
+        return {
+          name: el.displayname,
+          slug: el.slug,
+          color: el.hexcolor
+        };
+      });
   }
 
   createTimeline(dataSheet) {
@@ -104,7 +124,35 @@ export class GoogleSheetsContextProvider extends React.Component {
         return a.date - b.date;
       }
     });
-    this.setState({ timeline: sortedData });
+    this.setState({ timeline: sortedData, filteredTimeline: sortedData });
+  }
+
+  filterTimeline(query) {
+    this.setState({
+      filteredTimeline: this.state.timeline.filter(el => {
+        return query(el);
+      })
+    });
+  }
+
+  filterTimelineByCategorySlugs(slugs, includeAnnotations = false) {
+    this.filterTimeline(el => {
+      if (slugs.includes(el.categorySlug)) {
+        return true;
+      } else if (
+        includeAnnotations &&
+        GoogleSheetsContextProvider.elementIsAnnotation(el)
+      ) {
+        return true;
+      }
+      return false;
+    });
+  }
+
+  filterTimelineClear() {
+    this.setState({
+      filteredTimeline: this.state.timeline
+    });
   }
 
   render() {
@@ -120,7 +168,12 @@ export class GoogleSheetsContextProvider extends React.Component {
           getLabel: this.getLabel.bind(this),
           getCategoryColor: this.getCategoryColor.bind(this),
           getCategoryName: this.getCategoryName.bind(this),
-          createTimeline: this.createTimeline.bind(this)
+          createTimeline: this.createTimeline.bind(this),
+          getCategoriesList: this.getCategoriesList.bind(this),
+          filterTimelineByCategorySlugs: this.filterTimelineByCategorySlugs.bind(
+            this
+          ),
+          filterTimelineClear: this.filterTimelineClear.bind(this)
         }}
       >
         {this.props.children}

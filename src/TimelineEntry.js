@@ -56,6 +56,7 @@ export class TimelineEntry extends React.Component {
               className={`timeline-button-readMore timeline-button-readMore-${
                 this.props.item.categorySlug
               }`}
+              style={{ backgroundColor: categoryColor }}
             >
               {this.formatLinkLabel()}
             </a>
