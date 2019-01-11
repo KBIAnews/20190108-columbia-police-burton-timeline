@@ -865,6 +865,31 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@cassette/components@^2.0.0-alpha.14":
+  version "2.0.0-alpha.14"
+  resolved "https://registry.yarnpkg.com/@cassette/components/-/components-2.0.0-alpha.14.tgz#f2a7fe4aabb79db4df9d4a45501a02860de1613e"
+  integrity sha512-Yp/bem7OY6x7DoPoaRaTyujjzLgFUnGAh4G+7CfLP/8Ubv8wQ8sxq/rrB3D6MgvGw+LkyK6ImnG8qVSzugfU9g==
+  dependencies:
+    "@cassette/core" "^2.0.0-alpha.14"
+    prop-types "^15.5.10"
+    resize-observer-polyfill "^1.4.2"
+
+"@cassette/core@^2.0.0-alpha.14":
+  version "2.0.0-alpha.14"
+  resolved "https://registry.yarnpkg.com/@cassette/core/-/core-2.0.0-alpha.14.tgz#f92945af56911cf4af018aff1b48eb5da20d99b6"
+  integrity sha512-i+QeesAG3tjknJDxDhRq+tGVpOFLqwZJipFXvvDWg97EgDstfPyZONujvo3zKzfe+vbQEUK2naK1zIZ8Hed//Q==
+  dependencies:
+    prop-types "^15.5.10"
+
+"@cassette/player@^2.0.0-alpha.14":
+  version "2.0.0-alpha.14"
+  resolved "https://registry.yarnpkg.com/@cassette/player/-/player-2.0.0-alpha.14.tgz#c6b40d4c74c32ed91334eb966298db35a4166134"
+  integrity sha512-cUp2xZs4z39bLyMNmjZ7Q4Z04Y4HXsklSNKvyycA5J0OWV22z4VKVPezuFGYtgtXpPJhatYskYliz7GWLcPdkQ==
+  dependencies:
+    "@cassette/components" "^2.0.0-alpha.14"
+    "@cassette/core" "^2.0.0-alpha.14"
+    prop-types "^15.5.10"
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -8247,6 +8272,13 @@ react-lifecycles-compat@^3.0.2:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-responsive-audio-player@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-responsive-audio-player/-/react-responsive-audio-player-1.5.0.tgz#d6f90f40f9439b614d3bb6d0066e5975dc97665f"
+  integrity sha512-HaESYlmftRpRnlL4p57QLqkVjjFCVGPS6CoESCVh7WEo4rts814L9dRtKLLt/jk/Lo+aUn9AAP+Zt3PrpP8TIw==
+  dependencies:
+    prop-types "^15.5.10"
+
 react-scripts@2.1.3:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-2.1.3.tgz#6e49be279f4039fb9f330d2b3529b933b8e90945"
@@ -8630,6 +8662,11 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+
+resize-observer-polyfill@^1.4.2:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-cwd@^2.0.0:
   version "2.0.0"

@@ -79,7 +79,7 @@ export class GoogleSheetsContextProvider extends React.Component {
   }
 
   getCategoriesList() {
-    return this.state.rawSheetsData.design
+    return this.state.rawSheetsData.design.rows
       .filter(el => {
         // Don't give me the
         return !el.slug.includes("--");
@@ -104,7 +104,9 @@ export class GoogleSheetsContextProvider extends React.Component {
         imageUrl: row.imageurl,
         audioUrl: row.audiourl,
         exactDateLabel: row.exactdatelabel,
-        publicationName: row.publicationname
+        publicationName: row.publicationname,
+        pullQuote: row.pullquote,
+        pullQuoteAttr: row.pullquoteattr
       };
     });
     let sortedData = unsortedTimelineObjects.sort((a, b) => {

@@ -27,6 +27,8 @@ export class TimelineEntry extends React.Component {
         return "Read more from KBIA";
       case "Columbia Missourian":
         return "Read more from the Columbia Missourian";
+      case "ABC 17":
+        return "Read more at ABC 17";
       default:
         return "Read more";
     }
@@ -54,7 +56,20 @@ export class TimelineEntry extends React.Component {
               </small>
             </h3>
             <h3>{this.props.item.heading}</h3>
+            {this.props.item.pullQuote && (
+              <div className={"pullQuote"}>
+                <p className={"pullQuote--quote"}>
+                  {this.props.item.pullQuote}
+                </p>
+                <p className={"pullQuote--quoteAttr"}>
+                  {this.props.item.pullQuoteAttr}
+                </p>
+              </div>
+            )}
             <p>{this.props.item.description}</p>
+            {this.props.item.audioUrl && (
+              <audio controls={true} src={this.props.item.audioUrl} />
+            )}
             <p>
               <a
                 href={this.props.item.linkUrl}

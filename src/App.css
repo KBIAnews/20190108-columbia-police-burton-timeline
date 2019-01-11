@@ -2,13 +2,9 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
 
 .App-header {
-  background-color: #282c34;
+  background-color: #0B403F;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,8 +15,8 @@
 }
 
 .subhed{
-  max-width: 800px;
   text-align: left;
+  font-size: 1.5rem;
 }
 
 .subhed a{
@@ -98,4 +94,85 @@ button.categoryFilter--button-filter{
   text-align: right;
   display: inline;
   float: right;
+}
+
+div.pullQuote {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  padding: 0.5em 10px 3em 5px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+div.pullQuote:before{
+  content: "“";
+  float:left;
+  font-size: 3em;
+  display: table;
+}
+
+div.pullQuote:after{
+  content: "”";
+  float: right;
+  font-size: 3em;
+  display: table;
+}
+
+div.pullQuote p.pullQuote--quoteAttr{
+  text-align: right;
+  clear:both;
+}
+
+div.pullQuote p.pullQuote--quoteAttr:before{
+  content: "— ";
+}
+
+div.pullQuote p.pullQuote--quote{
+  padding-top: 0.5em;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 1.2em;
+  font-style: italic;
+  clear:both;
+}
+
+div.filterForm--hide{
+  display:none;
+}
+
+div.pretty{
+  margin-top: 1em;
+}
+
+header h1{
+  padding-top: 2rem;
+}
+
+header p {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 900px){
+  header a.contain-kbia-logo img{
+
+  }
+
+  header h1 {
+    margin-top: 100px;
+  }
+
+  header p{
+    font-size: 1.1rem;
+    margin-left: 10px;
+    margin-right:  10px;
+  }
+
+  header div.credit p{
+    margin-bottom: 3rem;
+  }
+}
+
+div.credit p{
+  font-size: 1.1rem;
+  opacity: 0.6;
 }

@@ -14,6 +14,19 @@ export class TitleCard extends Component {
   render() {
     return (
       <header className="App-header">
+        <a className="contain-kbia-logo" href="https://www.kbia.org">
+          <img
+            style={{
+              position: "absolute",
+              maxWidth: "100px",
+              top: "20px",
+              left: "20px"
+            }}
+            src="https://s3.amazonaws.com/media.kbia.org/logos/kbia-wht.png"
+            alt="KBIA Logo"
+          />
+        </a>
+
         <GoogleSheetsContextConsumer>
           {context => {
             if (context.pageMustSuspend) {
@@ -41,6 +54,9 @@ export class TitleCard extends Component {
                         __html: context.getLabel("subhed")
                       }}
                     />
+                    <div className="credit">
+                      <p>{context.getLabel("credit")}</p>
+                    </div>
                   </div>
                 </React.Fragment>
               );
